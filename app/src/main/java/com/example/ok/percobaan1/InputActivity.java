@@ -14,7 +14,8 @@ public class InputActivity extends AppCompatActivity {
     Button submit;
     EditText nameText,addressText;
     Repository repository;
-    TextView textView;
+    TextView textView,textView2;
+    Button balik;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,20 @@ public class InputActivity extends AppCompatActivity {
         nameText=findViewById(R.id.name);
         addressText=findViewById(R.id.address);
         textView = findViewById(R.id.textView);
+
+        balik=findViewById(R.id.btn_balik);
+
+        balik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent=new Intent(MainActivity.this,InputActivity.class);
+//                startActivity(intent);
+                balik();
+            }
+        });
+
+
+        textView2 = findViewById(R.id.textView2);
 
         repository=new Repository();
 
@@ -38,6 +53,7 @@ public class InputActivity extends AppCompatActivity {
                 //insert data to database
                 repository.addData(user);
                 textView.setText(nama);
+                textView2.setText(alamat);
                 Toast.makeText(InputActivity.this,"berhasil memasukkan data",Toast.LENGTH_LONG).show();
             }
         });
