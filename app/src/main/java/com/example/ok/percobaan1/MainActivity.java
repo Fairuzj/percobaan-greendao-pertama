@@ -15,7 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    /**
+     * RecyclerView = menyimpan sebanyak mungkin tampilan item yang muat di layar
+     * Dan juga Hanya menggunakan tampilan dalam jumlah terbatas yang digunakan kembali saat tampilan tersebut tidak tampak di layar.
+     *
+     * Intinya digunakan untuk menyimpan item ke tampilan
+     * **/
     RecyclerView listView;
+
+    /**
+     * Repository   =   Tempatnya menyimpan Fungsion2 buat database(Table user)
+     * */
     Repository repository;
     List<User> list;
     MyAdapter adapter;
