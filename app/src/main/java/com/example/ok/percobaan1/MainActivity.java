@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Adapter;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     List<User> list;
     MyAdapter adapter;
     Button input;
+    ImageView img_gambar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView    =   (RecyclerView)   this.findViewById(R.id.listUser);
-        input       =                         findViewById(R.id.inputButton);
+        input       = findViewById(R.id.inputButton);
+        img_gambar = findViewById(R.id.img_gambar);
+
 
         repository=new Repository();
 

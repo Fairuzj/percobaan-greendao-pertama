@@ -12,20 +12,57 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Nama"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/titik1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/nama"
+        android:layout_marginTop="15dp"
+        android:text=":"/>
+
+
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/titik1"
         android:inputType="text"
         />
+
+    <TextView
+        android:id="@+id/alamat"
+        android:layout_below="@id/nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Alamat"
+        android:layout_margin="8dp"/>
+
+
+    <TextView
+        android:id="@+id/titik2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/alamat"
+        android:layout_below="@id/titik1"
+        android:layout_marginTop="32dp"
+        android:text=":"/>
+
 
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/titik2"
         android:layout_marginTop="5dp"
         android:inputType="text" />
 
@@ -37,7 +74,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="126dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="196dp"
         android:text="submit" />
 
     <TextView
@@ -47,7 +86,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="204dp"
-        android:text="TextView" />
+         />
 
     <TextView
         android:id="@+id/textView2"
@@ -59,20 +98,61 @@
         android:layout_marginTop="235dp"
         android:layout_marginEnd="163dp"
         android:layout_marginRight="163dp"
-        android:text="TextView" />
+    />
 
     <Button
-        android:id="@+id/btn_balik"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_ganti"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/alamat"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="Ganti Gambar"
+        />
+
+
+    <ImageView
+        android:id="@+id/img_gambar"
+        android:layout_width="100dp"
+        android:layout_height="79dp"
         android:layout_below="@id/address"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="322dp"
-        android:text="balik" />
+        android:layout_toRightOf="@id/btn_ganti"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@android:drawable/btn_dialog"
+        android:layout_marginLeft="273dp" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_simpan"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginStart="133dp"-->
+        <!--android:layout_marginLeft="133dp"-->
+        <!--android:layout_marginEnd="113dp"-->
+        <!--android:layout_marginRight="113dp"-->
+        <!--android:layout_marginBottom="73dp"-->
+        <!--android:text="Simpan Gambar" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/img_hasil"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginStart="152dp"-->
+        <!--android:layout_marginLeft="152dp"-->
+        <!--android:layout_marginEnd="132dp"-->
+        <!--android:layout_marginRight="132dp"-->
+        <!--android:layout_marginBottom="137dp"-->
+        <!--app:srcCompat="@android:drawable/arrow_up_float" />-->
 
 
 </RelativeLayout>

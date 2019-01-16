@@ -34,6 +34,10 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         item.getName().setText(user.getName());
 
         Log.e("name",user.getName());
+
+        item.getAddress().setText(user.getAddress());
+
+        Log.e("address",user.getAddress());
     }
 
 
