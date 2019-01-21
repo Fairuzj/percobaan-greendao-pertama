@@ -31,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ViewHolder item=(ViewHolder) viewHolder;
         User user=list.get(i);
 
-        item.getName().setText(user.getName());
+        item.getName().setText(user.get());
 
         Log.e("name",user.getName());
 

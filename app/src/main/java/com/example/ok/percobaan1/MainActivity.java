@@ -39,15 +39,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView    =   (RecyclerView)   this.findViewById(R.id.listUser);
-        input       = findViewById(R.id.inputButton);
+        listView   = (RecyclerView)   this.findViewById(R.id.listUser);
+        input      = findViewById(R.id.inputButton);
         img_gambar = findViewById(R.id.img_gambar);
-
-
         repository=new Repository();
-
         list=new ArrayList<>();
-
         adapter=new MyAdapter(list,this);
 
         listView.setLayoutManager(new LinearLayoutManager(this));
