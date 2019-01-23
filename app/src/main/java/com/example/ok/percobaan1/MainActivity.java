@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
      * Repository   =   Tempatnya menyimpan Fungsion2 buat database(Table user)
      * */
     Repository repository;
-    List<User> list;
+    List<Padi> list;
     MyAdapter adapter;
     Button input;
     ImageView img_gambar;
@@ -37,10 +37,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_utama);
 
         listView   = (RecyclerView)   this.findViewById(R.id.listUser);
-        input      = findViewById(R.id.inputButton);
         img_gambar = findViewById(R.id.img_gambar);
         repository=new Repository();
         list=new ArrayList<>();
@@ -51,14 +50,6 @@ public class MainActivity extends AppCompatActivity {
         listView.setItemAnimator(new DefaultItemAnimator());
         listView.setAdapter(adapter);
 
-        input.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent=new Intent(MainActivity.this,InputActivity.class);
-//                startActivity(intent);
-                inputAdd();
-            }
-        });
     }
 
     public void inputAdd(){
@@ -79,4 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void addNewItem(View view) {
+        // Go to add item activity
+        Intent intent = new Intent(this,InputActivity.class);
+        intent.putExtra("create",true);
+        startActivity(intent);
+    }
+
 }

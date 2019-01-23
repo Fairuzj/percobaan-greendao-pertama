@@ -4,34 +4,34 @@ import java.util.List;
 
 public class Repository {
 
-    UserDao userDao;
-    List<User> list;
+    PadiDao padiDao;
+    List<Padi> list;
 
     public Repository(){
         DaoSession daoSession =  MyApp.getInstance().getDaoSession();
-        userDao=daoSession.getUserDao();
+        padiDao=daoSession.getPadiDao();
     }
 
 
 
-    public List<User> getAllData() {
-        list=userDao.loadAll();
+    public List<Padi> getAllData() {
+        list=padiDao.loadAll();
 
         return list;
     }
 
-    public void updateData( User user) {
-        userDao.update(user);
+    public void updateData( Padi padi) {
+        padiDao.update(padi);
     }
 
 
-    public void deleteData( long id) {
-        userDao.deleteByKey(id);
+    public void deleteData( Long id) {
+        padiDao.deleteByKey(id);
     }
 
 
-    public void addData( User user) {
-        userDao.insert(user);
+    public void addData( Padi padi) {
+        padiDao.insert(padi);
     }
 
 }

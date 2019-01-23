@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    List<User> list;
+    List<Padi> list;
     Context context;
 
-    public MyAdapter(List<User> list, Context context){
+    public MyAdapter(List<Padi> list, Context context){
         this.list=list;
         this.context=context;
     }
@@ -29,15 +29,15 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         ViewHolder item=(ViewHolder) viewHolder;
-        User user=list.get(i);
+        Padi padi=list.get(i);
 
-        item.getName().setText(user.get());
+        item.getName().setText(padi.getPemilik());
 
-        Log.e("name",user.getName());
+        Log.e("name",padi.getPemilik());
 
-        item.getAddress().setText(user.getAddress());
+        item.getHasil().setText(padi.getHasilpanen());
 
-        Log.e("address",user.getAddress());
+        Log.e("address",padi.getHasilpanen());
     }
 
 

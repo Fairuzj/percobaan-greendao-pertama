@@ -26,7 +26,7 @@ import java.util.Random;
 public class InputActivity extends AppCompatActivity {
 
     Button submit,btn_ganti,balik,btn_simpan;
-    EditText nameText,addressText;
+    EditText nameText,addressText,luaslahanpadi,tgl_tanam,tgl_siappanen,nik,j_pekerja;
     Repository repository;
     TextView textView,textView2;
     ImageView img_gambar,img_hasil;
@@ -35,91 +35,38 @@ public class InputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input);
-        submit=findViewById(R.id.submit);
-        nameText=findViewById(R.id.name);
-        addressText=findViewById(R.id.address);
+        setContentView(R.layout.activity_input_);
+        submit=findViewById(R.id.simpan);
+        nameText=findViewById(R.id.nama_pemilik);
+        addressText=findViewById(R.id.hasil_panen);
         textView = findViewById(R.id.textView);
         btn_ganti = findViewById(R.id.btn_ganti);
         img_gambar = findViewById(R.id.img_gambar);
-
-//        balik=findViewById(R.id.btn_balik);
-//
-//        balik.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Intent intent=new Intent(MainActivity.this,InputActivity.class);
-////                startActivity(intent);
-//                balik();
-//            }
-//        });
-
-        btn_ganti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select chooser"), PICK_IMAGE_REQUEST_CODE);
-            }
-        });
-
-//        btn_simpan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                BitmapDrawable bitmapDrawable = (BitmapDrawable) img_gambar.getDrawable();
-//                Bitmap bitmap = bitmapDrawable.getBitmap();
-//
-//                ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
-//                File dir = contextWrapper.getDir("simpan", Context.MODE_PRIVATE);
-//                Random random = new Random();
-//                String nama_gambar = "img_"+random.nextInt(1000)+System.currentTimeMillis()+".jpg";
-//                File file = new File(dir, nama_gambar);
-//
-//                FileOutputStream fos = null;
-//
-//                try{
-//                    fos = new FileOutputStream(file);
-//                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-//                    fos.flush();
-//                    fos.close();
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//
-//                String path = dir.getAbsolutePath();
-//                String imageName = nama_gambar;
-//
-//                Toast.makeText(contextWrapper, "path : "+path+", nama file : "+imageName, Toast.LENGTH_SHORT).show();
-//
-//
-//                File file_gambar = new File(path, imageName);
-//                try {
-//                    Bitmap bitmap1 = Bitmap.createBitmap(BitmapFactory.decodeStream(new FileInputStream(file_gambar)));
-//                    img_hasil.setImageBitmap(bitmap1);
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-
-
-        textView2 = findViewById(R.id.textView2);
-
+        luaslahanpadi	=	findViewById	(R.id.luaslahan);
+        tgl_tanam		=	findViewById	(R.id.tgl_tanama);
+        tgl_siappanen	=	findViewById	(R.id.tgl_siap);
+        nik				=	findViewById	(R.id.nik);
+        j_pekerja		=	findViewById	(R.id.jml_tenaga);
+        textView2       =   findViewById    (R.id.textView2);
         repository=new Repository();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //create new object
-                User user=new User();
+                Padi padi=new Padi();
                 //set value to object attribute
-                String alamat = user.setAddress(addressText.getText().toString().trim());
-                String nama = user.setName(nameText.getText().toString().trim());
+                padi.setHasilpanen(addressText.getText().toString().trim());
+                padi.setPemilik(nameText.getText().toString().trim());
+                padi.setLuaslahan(Integer.parseInt(luaslahanpadi.getText().toString()));
+                padi.setTgl_tanam(tgl_tanam.getText().toString());
+                padi.setTgl_siappanen(tgl_siappanen.getText().toString());
+                padi.setNik(Integer.parseInt(nik.getText().toString()));
+                padi.setPekerja(Integer.parseInt(j_pekerja.getText().toString()));
                 //insert data to database
-                repository.addData(user);
-                textView.setText(nama);
-                textView2.setText(alamat);
+                repository.addData(padi);
+//                textView.setText(nama);
+//                textView2.setText(alamat);
                 Toast.makeText(InputActivity.this,"berhasil memasukkan data",Toast.LENGTH_LONG).show();
                 balik();
             }

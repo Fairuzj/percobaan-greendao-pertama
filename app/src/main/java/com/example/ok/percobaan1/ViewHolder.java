@@ -7,20 +7,20 @@ import android.widget.TextView;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
-    TextView name,address;
+    TextView name,hasil;
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
         name=itemView.findViewById(R.id.item_name);
-        address = itemView.findViewById(R.id.item_address);
+        hasil = itemView.findViewById(R.id.item_address);
     }
 
     public TextView getName() {
         return name;
     }
 
-    public TextView getAddress(){
-        return address;
+    public TextView getHasil(){
+        return hasil;
     }
 }
 
